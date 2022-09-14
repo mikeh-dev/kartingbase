@@ -6,8 +6,8 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
     @base_title = "KartBase"
   end
 
-  test "should get home" do
-    get static_pages_home_url
+  test "should get root" do
+    get root_path
     assert_response :success
     assert_select "title", "Home | #{@base_title}"
   end
