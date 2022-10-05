@@ -27,7 +27,8 @@ end
 def update
   @user = User.find(params[:id])
   if @user.update(user_params)
-    
+    flash[:success] = "Changes Saved!"
+    redirect_to @user
   else
     render 'edit', status: :unprocessable_entity
   end
