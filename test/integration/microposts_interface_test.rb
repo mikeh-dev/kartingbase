@@ -20,7 +20,7 @@ class MicropostsInterfaceTest < MicropostsInterface
       post microposts_path, params: { micropost: { content: "" } }
     end
     assert_select 'div#error_explanation'
-    assert_select 'a[href=?]', '/?page=2'  # Correct pagination link
+    assert_select 'a[href=?]', '/?page=2'
   end
 
   test "should create a micropost on valid submission" do
@@ -48,5 +48,34 @@ class MicropostsInterfaceTest < MicropostsInterface
   test "should not have delete links on other user's profile page" do
     get user_path(users(:david))
     assert_select 'a', { text: 'delete', count: 0 }
+  end
+
+  class MicropostSidebarTest < MicropostsInterface
+
+    test "should display the right micropost count" do
+      get root_path
+      assert_match "#{@user.microposts.count} microposts", response.body
+    end
+
+    test "should user proper pluralization for one micropost" do
+      log_in_as(users(:david))
+      get root_path
+      assert_match "micropost", response.body
+    end
+  end
+
+  class ImageUploadTest < MicropostsInterface
+
+    test "should have a file input field for images" do
+      get root_path
+      assert_select 'input[type=file]'
+    end
+  
+    test "should be able to attach an image" do
+      cont = "This micropost really ties the room together."
+      img  = fixture_file_upload('kitten.jpg', 'image/jpeg')
+      post microposts_path, params: { micropost: { content: cont, image: img } }
+      assert assigns(:micropost).image
+    end
   end
 end
