@@ -7,11 +7,11 @@ local:
   root: <%= Rails.root.join("storage") %>
 
 amazon:
-  service: S3
-  AWS_ACCESS_KEY_ID:     AKIAWXB4R7HHADFYNLFD
-  AWS_BUCKET:            kartbasetest
-  AWS_REGION:            us-east-1
-  AWS_SECRET_ACCESS_KEY: ki51bC6H7mQfeLEcFWfwCM6URxTVvvbSjqxB6+RE
+  service:           S3
+  access_key_id:     AKIAWXB4R7HHADFYNLFD
+  secret_access_key: ki51bC6H7mQfeLEcFWfwCM6URxTVvvbSjqxB6+RE
+  region:            us-east-1
+  bucket:            kartbasetest
 
 # Remember not to checkin your GCS keyfile to a repository
 # google:
