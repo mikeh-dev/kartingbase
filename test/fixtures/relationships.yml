@@ -1,13 +1,13 @@
 one:
   follower: michael
-  followed: david
+  followed: mark
 
 two:
   follower: michael
   followed: malory
 
 three:
-  follower: lana
+  follower: mark 
   followed: michael
 
 four:
