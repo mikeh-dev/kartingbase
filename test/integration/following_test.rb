@@ -3,7 +3,7 @@ require "test_helper"
 class Following < ActionDispatch::IntegrationTest
   def setup
     @user  = users(:michael)
-    @other = users(:mark)
+    @other = users(:david)
     log_in_as(@user)
   end
 end

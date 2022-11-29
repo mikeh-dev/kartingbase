@@ -94,11 +94,9 @@ class UserTest < ActiveSupport::TestCase
     michael = users(:michael)
     david  = users(:david)
     mark    = users(:mark)
-    # Posts from followed user
     mark.microposts.each do |post_following|
       assert michael.feed.include?(post_following)
     end
-  
     michael.microposts.each do |post_self|
       assert michael.feed.include?(post_self)
     end
