@@ -22,4 +22,7 @@ Rails.application.routes.draw do
 
   get '/tracks', to: 'tracks#index'
   get '/tracks/:id', to: 'tracks#show'
+
+  get '/entries', to: 'entries#index'
+  get '/entries/:id', to: 'entries#show'
 end
