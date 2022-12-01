@@ -20,8 +20,7 @@ Rails.application.routes.draw do
   resources :relationships,       only: [:create, :destroy]
   get '/microposts', to: 'static_pages#home'
 
-  get '/tracks', to: 'tracks#index'
-  get '/tracks/:id', to: 'tracks#show'
+  resources :tracks
 
   get '/entries', to: 'entries#index'
   get '/entries/:id', to: 'entries#show'

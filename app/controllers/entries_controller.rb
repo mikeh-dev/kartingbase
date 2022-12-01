@@ -1,4 +1,6 @@
 class EntriesController < ApplicationController
+  before_action :current_user,   only: [:edit, :update, :index, :destroy]
+
   def index
     @entries = Entry.all
   end
