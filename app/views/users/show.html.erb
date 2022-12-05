@@ -22,5 +22,16 @@
       <%= will_paginate @microposts %>
     <% end %>
   </div>
+
+  <div class="col-md-8">
+    <%= render 'follow_form' if logged_in? %>
+    <% if @user.entries.any? %>
+      <h3>Entries (<%= @user.entries.count %>)</h3>
+        <ol class="microposts">
+          <%= render @entries %>
+        </ol>
+      <%= will_paginate @entries %>
+    <% end %>
+  </div>
   
 </div>
