@@ -19,30 +19,25 @@ class EntriesController < ApplicationController
     @entry = Entry.new(entry_params)
       if @entry.save
         flash.now[:notice] = "Entry Saved!"
-        render 'show'
+        render entry_path
       else
         flash.now[:alert] = "Incomplete Entry!"
-        render 'new'
+        render new_entry_path, status: :unprocessable_entity
       end
   end
 
   def destroy
     @entry.destroy
-    respond_to do |format|
-      format.html { redirect_to entries_url, notice: "Entry was successfully deleted." }
-      format.json { head :no_content }
-    end
+    flash[:notice] = "Entry has been Deleted!"
+    redirect_to entries_url, status: :see_other
   end
 
   def update
-    respond_to do |format|
-      if @entry.update(entry_params)
-        format.html { redirect_to @entry, notice: "Entry was successfully updated." }
-        format.json { render :show, status: :ok, location: @entry }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @entry.errors, status: :unprocessable_entity }
-      end
+    if @entry.update(entry_params)
+      flash[:success] = "Entry was successfully updated."
+      redirect_to entry_path
+    else
+      render 'edit', status: :unprocessable_entity
     end
   end
 
