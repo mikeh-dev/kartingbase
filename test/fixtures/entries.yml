@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  run: 1
+  sessionnotes: MyText
+
+two:
+  run: 1
+  sessionnotes: MyText
