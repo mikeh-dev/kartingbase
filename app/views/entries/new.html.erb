@@ -1,2 +1,8 @@
-<h1>Entries#New</h1>
-<p>Find me in app/views/entries/index.html.erb</p>
+<h1>Entries#New</h1>  
+
+  <%= form_with(model: @entry) do |f| %>
+      <div class="field">
+        <%= f.text_area :run, placeholder: "New Session...." %>
+      </div>
+      <%= f.submit "Create", class: "btn btn-primary" %>
+  <% end %>

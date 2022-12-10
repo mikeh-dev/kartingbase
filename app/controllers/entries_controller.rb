@@ -17,13 +17,13 @@ class EntriesController < ApplicationController
 
   def create
     @entry = Entry.new(entry_params)
-      if @entry.save
-        flash.now[:notice] = "Entry Saved!"
-        render entry_path
-      else
-        flash.now[:alert] = "Incomplete Entry!"
-        render new_entry_path, status: :unprocessable_entity
-      end
+    if @entry.save
+      flash[:success] = "Entry Created!"
+      redirect_to root_url #not sure about this redirect, surely should go to microposts index?
+    else
+      render 'static_pages/home', status: :unprocessable_entity
+      flash[:danger] = "Error!"
+    end
   end
 
   def destroy
