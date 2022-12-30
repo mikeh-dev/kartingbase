@@ -20,4 +20,5 @@ Rails.application.routes.draw do
   resources :relationships,       only: [:create, :destroy]
   get '/microposts', to: 'static_pages#home'
   resources :entries
+  resources :chassis
 end

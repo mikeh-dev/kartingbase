@@ -1,0 +1,30 @@
+<h1>Chassis Index</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Model</th>
+      <th>Year</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @chassis.each do |chas| %>
+      <tr>
+        <td><%= chas.make %></td>
+        <td><%= chas.model %></td>
+        <td><%= chas.year %></td>
+        <td>
+          <%= link_to "Show", '#' %>
+          <%= link_to "Edit", '#' %>
+          <%= link_to "Destroy", '#' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to "New Chassis", new_chassis_path %>
