@@ -1,13 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  make: MyString
-  model: MyString
-  year: 1
+kosmic:
+  make: "OTK"
+  model: "Kosmic"
+  year: 2021
   stolen: false
 
-two:
-  make: MyString
-  model: MyString
-  year: 1
-  stolen: false
+gillard:
+  make: "OTK"
+  model: "Gillard"
+  year: 2022
+  stolen: true

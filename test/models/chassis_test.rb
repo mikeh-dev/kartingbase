@@ -1,7 +1,12 @@
 require "test_helper"
 
 class ChassisTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def setup
+    @stolenchassis = chassis(:gillard)
+    @notstolenchassis = chassis(:kosmic)
+  end
+
+  test 'chassis should be valid' do
+    assert @stolenchassis.valid?
+  end
 end

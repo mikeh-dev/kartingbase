@@ -12,5 +12,3 @@ class AccountActivationsController < ApplicationController
     end
   end
 end
-
-#this is is a test
