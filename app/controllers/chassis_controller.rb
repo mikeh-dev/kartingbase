@@ -7,6 +7,7 @@ class ChassisController < ApplicationController
   end
 
   def show
+    @chassis = Chassis.find(params[:id])
   end
 
   def new
@@ -14,11 +15,13 @@ class ChassisController < ApplicationController
   end
 
   def create
-    @chassis = Chassis.new(params[:chassis])
+    @chassis = Chassis.new(chassis_params)
     if @chassis.save
-      redirect_to @chassis, :notice => "Successfully created chassis."
+      flash[:notice] = "Chassis created!"
+      redirect_to @chassis
     else
-      render :action => 'new'
+      render 'new', status: :unprocessable_entity
+      flash[:notice] = "Chassis not created!"
     end
   end
 
@@ -35,7 +38,8 @@ class ChassisController < ApplicationController
 
   def destroy
     @chassis.destroy
-    redirect_to chassis_url, :notice => "Successfully destroyed chassis."
+    flash[:success] = "Chassis deleted"
+    redirect_back_or_to(root_url, status: :see_other)
   end
 
   private

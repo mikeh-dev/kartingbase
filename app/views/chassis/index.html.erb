@@ -16,9 +16,13 @@
         <td><%= chas.model %></td>
         <td><%= chas.year %></td>
         <td>
-          <%= link_to "Show", '#' %>
-          <%= link_to "Edit", '#' %>
-          <%= link_to "Destroy", '#' %>
+          <%= link_to "Show", chas %>
+          <%= link_to "Edit", edit_chassis_url(chas) %>
+  
+          <%= link_to "delete", chas, data: { "turbo-method": :delete,
+                                               turbo_confirm: "You sure?" } %>
+
+      
         </td>
       </tr>
     <% end %>
