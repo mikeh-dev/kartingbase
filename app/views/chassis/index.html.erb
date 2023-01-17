@@ -1,32 +1,35 @@
-<h1>Chassis Index</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Model</th>
-      <th>Year</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @chassis.each do |chas| %>
+<div class="container my-5">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="my-0">Chassis'</h1>
+    <span class="badge badge-primary">Chassis's Man - this is just a piece of test text</span>
+  </div>
+  <table class="table table-striped table-hover">
+    <thead class="thead-light">
       <tr>
-        <td><%= chas.make %></td>
-        <td><%= chas.model %></td>
-        <td><%= chas.year %></td>
-        <td>
-          <%= link_to "Show", chas %>
-          <%= link_to "Edit", edit_chassis_url(chas) %>
-  
-          <%= link_to "delete", chas, data: { "turbo-method": :delete,
-                                               turbo_confirm: "You sure?" } %>
-        </td>
+        <th>Chassis</th>
+        <th>Make</th>
+        <th>Stolen</th>
+        <th>Number</th>
+        <th>Year</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @chassis.each do |chas| %>
+        <tr>
+          <td><%= chas.make %></td>
+          <td><%= chas.model %></td>
+          <td><%= chas.stolen %></td>
+          <td><%= chas.number %></td>
+          <td><%= chas.year %></td>
 
-<br>
+            <td class="d-flex justify-content-between">
+              <%= link_to "View Chassis", chassis_path(chas), class: "btn btn-success btn-sm mr-2" %>
+            </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
-<%= link_to "New Chassis", new_chassis_path %>
+
+<%= link_to "New Chassis", new_chassis_path, class: "btn btn-success" %>

@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">Chassis</h4>
+    <p class="card-text">
+      <%= content_tag :strong, "Make: " %> <%= @chassis.make %> <br>
+      <%= content_tag :strong, "Model: " %> <%= @chassis.model %> <br>
+      <%= content_tag :strong, "Year: " %> <%= @chassis.year %> <br>
+      <%= content_tag :strong, "Stolen: " %> <%= @chassis.stolen %>
+    </p>
+  </div>
+</div>
+
+<%= link_to "Add New Chassis", new_chassis_path, class: "btn btn-primary" %>
+<%= link_to "Back to Index", chassis_index_path, class: "btn btn-info" %>
+
+

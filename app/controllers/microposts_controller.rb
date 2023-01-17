@@ -7,8 +7,7 @@ class MicropostsController < ApplicationController
     @micropost.image.attach(params[:micropost][:image])
     if @micropost.save
       flash[:success] = "Micropost Created!"
-      redirect_to root_url #not sure about this redirect, surely should go to microposts index?
-    else
+      redirect_to root_url #change this when the rooturl is changed
       @feed_items = current_user.feed.paginate(page: params[:page])
       render 'static_pages/home', status: :unprocessable_entity    
     end

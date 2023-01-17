@@ -1,6 +1,6 @@
 class ChassisController < ApplicationController
   before_action :find_chassis, only: [:show, :edit, :update, :destroy]
-
+  before_action :logged_in_user, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @chassis = Chassis.all
@@ -15,7 +15,7 @@ class ChassisController < ApplicationController
   end
 
   def create
-    @chassis = Chassis.new(chassis_params)
+    @chassis = current_user.chassis.build(chassis_params)
     if @chassis.save
       flash[:notice] = "Chassis created!"
       redirect_to @chassis
@@ -29,10 +29,11 @@ class ChassisController < ApplicationController
   end
 
   def update
-    if @chassis.update_attributes(params[:chassis])
-      redirect_to @chassis, :notice  => "Successfully updated chassis."
+    if @chassis.update(chassis_params)
+      flash[:success] = "Changes Saved!"
+      redirect_to @chassis
     else
-      render :action => 'edit'
+      render 'edit', status: :unprocessable_entity
     end
   end
 
