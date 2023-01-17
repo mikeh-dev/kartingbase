@@ -46,7 +46,7 @@ class ChassisController < ApplicationController
   private
 
   def chassis_params
-    params.require(:chassis).permit(:make, :model, :year, :stolen)
+    params.require(:chassis).permit(:make, :model, :year, :stolen, :number)
   end
 
   def find_chassis

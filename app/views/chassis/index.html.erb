@@ -11,6 +11,7 @@
         <th>Stolen</th>
         <th>Number</th>
         <th>Year</th>
+        <th>Owner</th>
       </tr>
     </thead>
     <tbody>
@@ -18,12 +19,16 @@
         <tr>
           <td><%= chas.make %></td>
           <td><%= chas.model %></td>
-          <td><%= chas.stolen %></td>
+          <td><%= content_tag(:span, display_status(chas.stolen), class: "stolen") %></td>
           <td><%= chas.number %></td>
           <td><%= chas.year %></td>
+          <td><%= chas.user.name %></td>
+
 
             <td class="d-flex justify-content-between">
               <%= link_to "View Chassis", chassis_path(chas), class: "btn btn-success btn-sm mr-2" %>
+              <%= link_to "Edit Chassis", edit_chassis_path(chas), class: "btn btn-primary btn-sm mr-2" %>
+              <%= link_to "Delete Chassis", chassis_path(chas), method: :delete, data: { "turbo_method": :delete, turbo_confirm: "You Sure?" }, class: "btn btn-danger btn-sm" %>        
             </td>
         </tr>
       <% end %>
