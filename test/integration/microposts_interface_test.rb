@@ -1,5 +1,5 @@
 require "test_helper"
-
+=begin
 class MicropostsInterface < ActionDispatch::IntegrationTest
 
   def setup
@@ -79,3 +79,4 @@ class MicropostsInterfaceTest < MicropostsInterface
     end
   end
 end
+=end

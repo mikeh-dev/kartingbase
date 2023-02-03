@@ -10,7 +10,7 @@
   </div>
   <div class="form-group">
     <%= f.label :year %>
-    <%= f.text_field :year, class: 'form-control' %>
+    <%= f.number_field :year, class: 'form-control' %>
   </div>
    <div class="form-group">
     <%= f.label :chassis_number %>
@@ -18,7 +18,8 @@
   </div>
   <div class="form-group">
     <%= f.label :stolen %>
-    <%= f.select :stolen, ['Yes', 'No'], class: 'form-control' %>
+    <%= f.radio_button :stolen, true %> Yes
+    <%= f.radio_button :stolen, false %> No
   </div>
   <div class="form-group">
     <%= f.submit yield(:button_text), class: "btn btn-primary submit-button" %>

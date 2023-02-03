@@ -4,10 +4,15 @@ kosmic:
   make: "OTK"
   model: "Kosmic"
   year: 2021
+  number: "HY1865"
   stolen: false
+  user: michael
+
 
 gillard:
   make: "OTK"
   model: "Gillard"
+  number: "HY7673"
   year: 2022
   stolen: true
+  user: michael

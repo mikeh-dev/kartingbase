@@ -1,5 +1,8 @@
-<% if logged_in? %>
-  <%= render 'shared/loggedin_home' %>
-<% else %>
-  <%= render 'shared/unloggedin_home' %>
-<% end %>
+<div class="center jumbotron">
+  <%= link_to image_tag("kblogotest.png", alt: "KB Logo", width: "200"), "https://kartbase.co.uk/" %>
+  <% if logged_in? %>
+    <%= render 'shared/loggedin_home' %>
+  <% else %>
+    <%= render 'shared/unloggedin_home' %>
+  <% end %>
+</div>
