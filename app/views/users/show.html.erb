@@ -1,25 +1,28 @@
+<h1>User Dashboard</h1>
 <% provide(:title, @user.name) %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-    </section>
-    <section class="stats">
-      <%= render 'shared/stats' %>
-    </section>
-  </aside>
 
-  <div class="col-md-8">
-    <%= render 'follow_form' if logged_in? %>
-    <% if @user.microposts.any? %>
-      <h3>Microposts (<%= @user.microposts.count %>)</h3>
-        <ol class="microposts">
-          <%= render @microposts %>
-        </ol>
-      <%= will_paginate @microposts %>
-    <% end %>
+<div class="container my-5">
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Chassis:</h2>
+      <ul class="list-group">
+        <% @chassis.each do |chas| %>
+          <li class="list-group-item"><%= chas.make%> <%= chas.model%></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="col-md-6">
+      <h2>Microposts:</h2>
+      <ul class="list-group">
+        <% @microposts.each do |micropost| %>
+          <li class="list-group-item"><%= micropost.content %></li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </div>
+
+
+
+
