@@ -9,10 +9,7 @@
             <%= form.label :sessiontype, "Session Type" %>
             <%= form.select :sessiontype, options_for_select(['Test', 'Qualifying', 'Heat 1', 'Heat 2', 'Final']),{}, { class: "form-control" } %>
           </div>
-          <div class="form-group col-md-3">
-            <%= form.label :condition %>
-            <%= form.text_field :condition, { class: "form-control", placeholder: "Weather Summary"} %>
-          </div>
+          
           <div class="form-group col-md-3">
             <%= form.label :track %>
             <%= form.collection_select :track_id, Track.all, :id, :name, { prompt: "Select a track" }, { class: "form-control" } %>
@@ -21,8 +18,6 @@
             <%= form.label :run, "Session" %>
             <%= form.number_field :run, { class: "form-control", placeholder: "Session Number"} %>
           </div>
-
-
 
         <div class="form-group col-md-6">
           <%= form.label :date %>
@@ -44,6 +39,10 @@
             <%= form.label :sessionnotes, "Session Notes" %>
             <%= form.text_area :sessionnotes, { class: "form-control", placeholder: "Summary"} %>
           </div>
+          <div class="form-group col-md-12">
+            <%= form.label :condition, "Weather" %>
+            <%= form.text_field :condition, { class: "form-control", placeholder: "Summary"} %>
+
         </div>
 
         <h3 class="custom-form-header mt-1">End of Session Updates</h3>
@@ -204,7 +203,7 @@
 
           <div class="col">
             <%= form.label :chassis %>
-            <%= form.collection_select :chassis_id, @chassis, :id, :number, { prompt: "Select a Chassis" }, { class: "form-control" } %>
+            <%= form.collection_select :chassis_id, current_user.chassis, :id, :number, { prompt: "Select a Chassis" }, { class: "form-control" } %>
           </div>
 
           <div class="col">
@@ -289,3 +288,6 @@
     </div>
   </div>
 <% end %>
+
+
+

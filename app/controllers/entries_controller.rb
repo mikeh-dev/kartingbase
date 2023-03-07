@@ -1,7 +1,6 @@
 class EntriesController < ApplicationController
   before_action :logged_in_user, only: [:new, :create, :edit, :update, :destroy]
 
-
   def index
     @entries = Entry.includes(:track).all
   end
@@ -14,7 +13,6 @@ class EntriesController < ApplicationController
     @entry = current_user.entries.build(Entry.last_entry_data_for_user(current_user.id))
     @entry.date = Date.today
     @entry.time = Time.current.strftime('%H:%M:%S')
-    @chassis = current_user.chassis
   end
 
   def create
@@ -30,7 +28,6 @@ class EntriesController < ApplicationController
 
   def edit
     @entry = Entry.find(params[:id])
-    @chassis = current_user.chassis
   end
 
   def update
