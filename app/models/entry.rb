@@ -78,10 +78,13 @@ class Entry < ApplicationRecord
   def fetch_weather_data
     lat = track.latitude
     lon = track.longitude
+
+    dt = DateTime.new(date.year, date.month, date.day, time.hour, time.min).to_i
+
+    response = HTTParty.get("https://api.openweathermap.org/data/3.0/onecall/timemachine?lat=#{lat}&lon=#{lon}&dt=#{dt}&appid=#{OPEN_WEATHER_API_KEY}")
     
-    response = HTTParty.get("https://api.openweathermap.org/data/2.5/weather?lat=#{lat}&lon=#{lon}&appid=#{OPEN_WEATHER_API_KEY}")
     data = JSON.parse(response.body)
     
-    self.condition = data["main"]["humidity"]
+    self.condition = data["data"][0]["weather"][0]["main"]
   end
 end
