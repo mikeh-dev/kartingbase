@@ -1,2 +1,26 @@
-<h1>Entries#index</h1>
-<p>Find me in app/views/entries/index.html.erb</p>
+<h1 class="pagetitle">Sessions</h1>
+
+<div class="row p-3">
+    <% @entries.each do |entry| %>
+    <div class="col">
+        <div class="card w-33 m-2 index-width">
+        <div class="card-body">
+          <h5 class="card-title"><%= entry.sessiontype %> </h5>
+          <h5 class="card-title">Run <%= entry.run %> on <%= entry.date.strftime("%d/%m/%Y") %> </h5>
+          <h5 class="card-subtitle mb-2 text-muted">Track <%= entry.track.name %> </h5>
+          <p class="card-text">Session time: <%= entry.time.strftime("%k:%M")  %> </p>
+          <p class="card-text">Best Lap: <%= entry.bestlap %> </p>
+          <p class="card-text">Tyre: <%= entry.tyre %> (<%= entry.tyreset %>) </p>
+          <p class="card-text">Gearing: <%= entry.gearing %> </p>
+          <p class="card-text">Carb: <%= entry.jet %> / <%= entry.needleclip %></p>
+          
+          <%= link_to 'View', entry, class: "btn btn-info" %>
+          <%= link_to 'Update', edit_entry_path(entry), class: "btn btn-primary" %>
+          <%= link_to 'Delete', entry, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+     </div>
+    </div>
+  <% end %>
+</div>
+      
+<%= link_to 'New Entry', new_entry_path, class: "btn btn-primary" %>

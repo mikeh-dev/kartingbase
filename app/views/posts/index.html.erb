@@ -1,0 +1,14 @@
+<h1>Posts</h1>
+
+    <%= line_chart Post.group_by_day(:created_at, range: 1.month.ago.midnight..Time.now).sum(:views), width: "50%", height: "50%" %>
+
+<div id="posts">
+  <% @posts.each do |post| %> 
+    <%= render post %>
+    <p>
+      <%= link_to "Show this post", post %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New post", new_post_path %>

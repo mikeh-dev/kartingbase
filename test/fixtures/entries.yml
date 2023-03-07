@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  track: one
+  chassis: one
+  user: one
+
+two:
+  track: two
+  chassis: two
+  user: two

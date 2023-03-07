@@ -1,0 +1,6 @@
+<h1 class="pagetitle">Editing Session</h1>
+
+<%= render 'form', entry: @entry %>
+
+<%= link_to 'Back', @entry, class: "btn btn-primary" %> |
+<%= link_to 'Delete', @entry, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>

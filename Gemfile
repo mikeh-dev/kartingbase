@@ -53,3 +53,7 @@ end
 # gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Use Redis for Action Cable
 gem "redis", "~> 4.0"
+
+gem "chartkick", "~> 5.0"
+
+gem "groupdate", "~> 6.2"

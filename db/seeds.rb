@@ -31,3 +31,10 @@ following = users[2..50]
 followers = users[3..40]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
+
+100.times do |i|
+  Post.create!(title: "Title #{i}",
+     created_at: Time.now - i.days,
+     updated_at: Time.now - i.days,
+     views: rand(15..100) / (i * 0.1))
+end

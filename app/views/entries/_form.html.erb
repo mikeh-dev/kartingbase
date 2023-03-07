@@ -1,0 +1,291 @@
+<%= form_with(model: @entry) do |form| %>
+  <%= render 'shared/error_messages', object: form.object %>
+
+  <div class="card mb-2"> 
+    <div class="card-body">
+      <h3 class="custom-form-header"></h3>
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <%= form.label :sessiontype, "Session Type" %>
+            <%= form.select :sessiontype, options_for_select(['Test', 'Qualifying', 'Heat 1', 'Heat 2', 'Final']),{}, { class: "form-control" } %>
+          </div>
+          <div class="form-group col-md-3">
+            <%= form.label :condition %>
+            <%= form.text_field :condition, { class: "form-control", placeholder: "Weather Summary"} %>
+          </div>
+          <div class="form-group col-md-3">
+            <%= form.label :track %>
+            <%= form.collection_select :track_id, Track.all, :id, :name, { prompt: "Select a track" }, { class: "form-control" } %>
+          </div>
+          <div class="form-group col-md-6">
+            <%= form.label :run, "Session" %>
+            <%= form.number_field :run, { class: "form-control", placeholder: "Session Number"} %>
+          </div>
+
+
+
+        <div class="form-group col-md-6">
+          <%= form.label :date %>
+          <%= form.date_field :date, value: @entry.date, class: "form-control" %>
+        </div>
+
+        <div class="form-group col-md-6">
+          <%= form.label :time %>
+          <%= form.time_field :time, value: @entry.time.strftime('%H:%M'), class: "form-control" %>
+        </div>
+
+
+
+          <div class="form-group col-md-12">
+            <%= form.label :mainchanges, "Main Setup Changes" %>
+            <%= form.text_field :mainchanges, { class: "form-control", placeholder: "Summary"} %>
+          </div>
+          <div class="form-group col-md-12">
+            <%= form.label :sessionnotes, "Session Notes" %>
+            <%= form.text_area :sessionnotes, { class: "form-control", placeholder: "Summary"} %>
+          </div>
+        </div>
+
+        <h3 class="custom-form-header mt-1">End of Session Updates</h3>
+
+        <div class="row">
+            <div class="col">
+              <%= form.label :endweight, "Post Weight" %>
+              <%= form.text_field :endweight, { class: "form-control", placeholder: "Kg"} %>
+            </div>
+            <div class="col">
+              <%= form.label :enginehour, "Engine Hrs" %>
+              <%= form.text_field :enginehour, { class: "form-control", placeholder: "Hours"} %>
+            </div>
+        
+            <div class="col">
+              <%= form.label :lapcount, "Laps Done" %>
+              <%= form.number_field :lapcount, { class: "form-control", placeholder: "Laps"} %>
+            </div>
+          </div>
+
+         <div class="row">
+             <div class="col">
+              <%= form.label :endfuel, "Post Fuel" %>
+              <%= form.text_field :endfuel, { class: "form-control", placeholder: "Kg"} %>
+            </div>
+            <div class="col">
+              <%= form.label :postpressure, "End Psi" %>
+              <%= form.text_field :postpressure, { class: "form-control", placeholder: "Psi"} %>
+            </div>
+          </div>
+
+      <div class="row mt-3">
+        <div class="col">
+          <%= form.label :bestlap, "Best Lap Time" %>
+          <%= form.text_field :bestlap, { class: "form-control", placeholder: "Time"} %>
+        </div>
+        <div class="col">
+          <%= form.label :secondbestlap, "Second Fastest Lap" %>
+          <%= form.text_field :secondbestlap, { class: "form-control", placeholder: "Time"} %>
+        </div>
+  
+        <div class="col">
+          <%= form.label :thirdbestlap, "Third Fastest Lap" %>
+          <%= form.text_field :thirdbestlap, { class: "form-control", placeholder: "Time"} %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <%= form.label :besttoprevs, "Best Lap Top Revs" %>
+          <%= form.text_field :besttoprevs, { class: "form-control", placeholder: "Rpm"} %>
+        </div>
+        <div class="col">
+          <%= form.label :secondbestlaptoprevs, "2nd Fastest Top Revs" %>
+          <%= form.text_field :secondbestlaptoprevs, { class: "form-control", placeholder: "Rpm"} %>
+        </div>
+  
+        <div class="col">
+          <%= form.label :thirdbesttoprevs, "3rd Fastest Top Revs" %>
+          <%= form.text_field :thirdbesttoprevs, { class: "form-control", placeholder: "Rpm"} %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <%= form.label :bestbottomrevs, "Best Lap Bottom Revs" %>
+          <%= form.text_field :bestbottomrevs, { class: "form-control", placeholder: "Rpm"} %>
+        </div>
+        <div class="col">
+          <%= form.label :secondbestlapbottomrevs, "2nd Fastest Bottom Revs" %>
+          <%= form.text_field :secondbestlapbottomrevs, { class: "form-control", placeholder: "Rpm"} %>
+        </div>
+  
+        <div class="col">
+          <%= form.label :thirdbestbottomrevs, "3rd Fastest Bottom Revs" %>
+          <%= form.text_field :thirdbestbottomrevs, { class: "form-control", placeholder: "Rpm"} %>
+        </div>
+      </div>
+
+       <h3 class="custom-form-header mt-4">Tyres</h3>
+
+      <div class="row mt-3">
+        <div class="col">
+          <%= form.label :prepressure, "Pre Psi" %>
+          <%= form.text_field :prepressure, { class: "form-control", placeholder: "Psi"} %>
+        </div>
+
+        <div class="col">
+            <%= form.label :rimset, "Rim" %>
+            <%= form.select :rimset, options_for_select(['MXJ 1', 'MXJ 2', 'MXJ 3', 'MXC 1', 'MXC 2', 'Wet 1', 'Wet 2', 'Wet 3'], @entry.rimset ),{}, { class: "form-control" } %>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+          <div class="col">
+            <%= form.label :tyre, "Tyre Type" %>
+            <%= form.select :tyre, options_for_select(['Vega White', 'D2XX', 'D5', 'W6 Vega', 'Mojo Wet', 'W5 Vega', 'D2'], @entry.tyre ),{}, { class: "form-control" } %>         
+          </div>
+
+          <div class="col">
+            <%= form.label :tyreset, "Tyre Set" %>
+            <%= form.text_field :tyreset, { class: "form-control", placeholder: "Number"} %>
+          </div>
+
+          <div class="col">
+            <%= form.label :tyreage, "Tyre Age" %>
+            <%= form.text_field :tyreage, { class: "form-control", placeholder: "Laps"} %>
+          </div>
+        </div>
+
+    <div class="form-group mt-4">
+      <h3 class="custom-form-header">Engine & Carb Setup</h3>
+      <div class="row">
+        <div class="col">
+          <%= form.label :needleclip, "Carb Clip" %>
+          <%= form.select :needleclip, options_for_select(['1', '2', '3', '4', '5'], @entry.needleclip ),{}, { class: "form-control" } %>
+        </div>
+
+        <div class="col">
+          <%= form.label :jet, "Main Jet" %>
+          <%= form.select :jet, options_for_select(['123', '124', '125', '126', '127', '128'], @entry.jet),{}, { class: "form-control" } %>
+        </div>
+
+        <div class="col">
+          <%= form.label :plug, "Spark Plug" %>
+          <%= form.select :plug, options_for_select(['Denso IW24', 'Denso IW27', 'Denso IW29', 'NGK BR9EIX', 'NGK BR8EIX', 'NGK BR10EIX'], @entry.plug ),{}, { class: "form-control" } %>
+        </div>
+      </div>
+      
+      <div class="row mt-3">
+        <div class="col">
+          <%= form.label :idle, "Idle" %>
+          <%= form.text_field :idle, { class: "form-control", placeholder: "Turns" } %>
+        </div>
+
+         <div class="col">
+          <%= form.label :airmix, "Air Mix" %>
+          <%= form.text_field :airmix, { class: "form-control", placeholder: "Number of Turns"} %>
+        </div>
+      </div>
+    </div>
+
+      <div class="row">
+        <div class="col">
+          <%= form.label :fuelload, "Pre Fuel" %>
+          <%= form.text_field :fuelload, { class: "form-control", placeholder: "Kg"} %>
+        </div>
+
+        <div class="col">
+          <%= form.label :fuelmix, "Fuel Mix" %>
+          <%= form.text_field :fuelmix, { class: "form-control", placeholder: "Ratio"} %>
+        </div>
+      </div>
+
+      <div class="form-group mt-3">
+       <h3 class="custom-form-header">Chassis Setup</h3>
+        <div class="row">
+
+          <div class="col">
+            <%= form.label :chassis %>
+            <%= form.collection_select :chassis_id, @chassis, :id, :number, { prompt: "Select a Chassis" }, { class: "form-control" } %>
+          </div>
+
+          <div class="col">
+            <%= form.label :frontwidth, "Front Width" %>
+            <%= form.select :frontwidth, options_for_select(['Large', '2 Small', 'Large & Small'], @entry.frontwidth ),{}, { class: "form-control" } %>
+          </div>
+
+          <div class="col">
+            <%= form.label :rearwidth, "Rear Width" %>
+            <%= form.number_field :rearwidth, { class: "form-control", placeholder: "Mm"} %>
+          </div>
+
+          <div class="col">
+            <%= form.label :gearing %>
+            <%= form.number_field :gearing, { class: "form-control", placeholder: "Gearing"} %>
+          </div>
+        </div>
+      <div class="row mt-3">
+        
+          <div class="col">
+            <%= form.label :axle, "Axle" %>
+            <%= form.select :axle, options_for_select(['1030N', '1040N'], @entry.axle ),{}, { class: "form-control", placeholder: "Type" } %>
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col">
+            <%= form.label :caster, "Caster" %>
+            <%= form.select :caster, options_for_select(['Nuetral', 'Half', 'Full'], @entry.caster ),{}, { class: "form-control" } %>
+          </div>
+      
+          <div class="col">
+            <%= form.label :camber, "Camber" %>
+            <%= form.text_field :camber, { class: "form-control", placeholder: "Clicks"} %>
+          </div>
+
+          <div class="col">
+            <%= form.label :toe, "Toe" %>
+            <%= form.text_field :toe, { class: "form-control", placeholder: "Mm"} %>
+          </div>
+        </div>
+        <div class="row mt-3 align-items-center">
+          <div class="col">
+            <%= form.label :frontbar, "Front Bar" %>
+            <%= form.select :frontbar, options_for_select(['Flat Hori', 'Flat Vert', 'Round'], @entry.frontbar ),{}, { class: "form-control" } %>
+          </div>
+      
+          <div class="col">
+            <%= form.label :frontride, "Front Ride" %>
+            <%= form.text_field :frontride, { class: "form-control", placeholder: ""} %>
+          </div>
+
+          <div class="col">
+            <%= form.label :rearride, "Rear Ride" %>
+            <%= form.text_field :rearride, { class: "form-control", placeholder: ""} %>
+          </div>
+        </div>
+
+        <div class="row mt-3 align-items-center">
+          <div class="col">
+            <%= form.label :chain, "Chain" %>
+            <%= form.text_field :chain, { class: "form-control", placeholder: ""} %>
+          </div>
+
+          <div class="col">
+            <%= form.label :waddingage, "Wadding (Hours)" %>
+            <%= form.text_field :waddingage, { class: "form-control", placeholder: "Age"} %>
+          </div>
+
+          <div class="col">
+            <%= form.label :gearoilage, " Gear Oil (hrs)" %>
+            <%= form.text_field :gearoilage, { class: "form-control", placeholder: "Age"} %>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions mb-3">
+        <%= form.submit "Submit", class: "btn btn-success" %>
+        <%= link_to 'Back', entries_path, class: "btn btn-primary" %>
+      </div>
+      </div>
+    </div>
+  </div>
+<% end %>
