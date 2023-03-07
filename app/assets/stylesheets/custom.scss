@@ -117,7 +117,7 @@ footer {
       margin-left: 15px;
     }
   }
-  @media (max-width: 800px) {
+  @media (max-width: 991px) {
     footer {
       small {
         display: block;
@@ -366,4 +366,45 @@ span.image {
 /* Style the selected option */
 .select-box option:checked {
   background-color: #f5f5f5;
+}
+
+@media (min-width: 992px) {
+  .col-lg-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+}
+
+/* for screens between 576px and 991px, display cards in 2 columns */
+@media (min-width: 576px) and (max-width: 991px) {
+  .col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+.card {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 10px;
+  
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-footer button {
+  flex: .5;
+  margin: 0 5px;
 }
