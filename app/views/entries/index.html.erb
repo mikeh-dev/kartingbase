@@ -13,6 +13,7 @@
           <p class="card-text">Tyre: <%= entry.tyre %> (<%= entry.tyreset %>) </p>
           <p class="card-text">Gearing: <%= entry.gearing %> </p>
           <p class="card-text">Carb: <%= entry.jet %> / <%= entry.needleclip %></p>
+          <p class="card-text">Weather: <%= entry.condition %> </p>
           
           <%= link_to 'View', entry, class: "btn btn-info" %>
           <%= link_to 'Update', edit_entry_path(entry), class: "btn btn-primary" %>

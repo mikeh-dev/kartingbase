@@ -3,9 +3,11 @@ class Entry < ApplicationRecord
   belongs_to :chassis
   belongs_to :track
 
+  before_save :fetch_weather_data
+
   accepts_nested_attributes_for :track
 
-  validates :track_id, :date, :time, :run, :gearing, :prepressure, :rearwidth, :frontwidth, :needleclip, :jet, :airmix, :idle, :rimset, :tyre, :tyreset, :camber, :caster, :toe, :frontride, :rearwidth, :plug, :frontbar, :fuelload, :fuelmix, :condition, :chain, :axle, :enginehour, :tyreage, :waddingage, :gearoilage, :sessiontype, :chassis_id, presence: true
+  validates :track_id, :date, :time, :run, :gearing, :prepressure, :rearwidth, :frontwidth, :needleclip, :jet, :airmix, :idle, :rimset, :tyre, :tyreset, :camber, :caster, :toe, :frontride, :rearwidth, :plug, :frontbar, :fuelload, :fuelmix, :chain, :axle, :enginehour, :tyreage, :waddingage, :gearoilage, :sessiontype, :chassis_id, presence: true
 
   def self.last_entry_for_user(user_id)
     where(user_id: user_id).last
@@ -69,5 +71,17 @@ class Entry < ApplicationRecord
     else
       {}
     end
+  end
+
+  private
+  
+  def fetch_weather_data
+    lat = track.latitude
+    lon = track.longitude
+    
+    response = HTTParty.get("https://api.openweathermap.org/data/2.5/weather?lat=#{lat}&lon=#{lon}&appid=#{OPEN_WEATHER_API_KEY}")
+    data = JSON.parse(response.body)
+    
+    self.condition = data["main"]["humidity"]
   end
 end

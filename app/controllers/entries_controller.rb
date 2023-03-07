@@ -33,9 +33,11 @@ class EntriesController < ApplicationController
   def update
     @entry = Entry.find(params[:id])
     if @entry.update(entry_params)
+      flash[:notice] = "Entry updated!"
       redirect_to @entry
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
+      flash[:notice] = "Entry not updated!"
     end
   end
 
