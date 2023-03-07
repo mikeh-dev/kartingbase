@@ -1,0 +1,25 @@
+<div class="card mb-2"> 
+  <div class="card-body">
+    <h3 class="custom-form-header"></h3>
+    <p><strong>Session Type:</strong> <%= @entry.sessiontype %></p>
+    <p><strong>Track:</strong> <%= @entry.track.name %></p>
+    <p><strong>Session:</strong> <%= @entry.run %></p>
+    <p><strong>Date:</strong> <%= @entry.date %></p>
+    <p><strong>Time:</strong> <%= @entry.time.strftime('%H:%M') %></p>
+    <p><strong>Main Setup Changes:</strong> <%= @entry.mainchanges %></p>
+    <p><strong>Session Notes:</strong> <%= @entry.sessionnotes %></p>
+    <p><strong>Weather:</strong> <%= @entry.condition %></p>
+    <h3 class="custom-form-header mt-1">End of Session Updates</h3>
+    <p><strong>Post Weight:</strong> <%= @entry.endweight %> kg</p>
+    <p><strong>Engine Hrs:</strong> <%= @entry.enginehour %> hours</p>
+    <p><strong>Laps Done:</strong> <%= @entry.lapcount %></p>
+    <p><strong>Post Fuel:</strong> <%= @entry.endfuel %> kg</p>
+    <p><strong>End Psi:</strong> <%= @entry.postpressure %> psi</p>
+    <p><strong>Best Lap Time:</strong> <%= @entry.bestlap %></p>
+    <p><strong>Second Fastest Lap:</strong> <%= @entry.secondbestlap %></p>
+    <p><strong>Third Fastest Lap:</strong> <%= @entry.thirdbestlap %></p>
+    <p><strong>Best Lap Top Revs:</strong> <%= @entry.besttoprevs %> rpm</p>
+    <p><strong>2nd Fastest Top Revs:</strong> <%= @entry.secondbestlaptoprevs %> rpm</p>
+    <p><strong>3rd Fastest Top Revs:</strong> <%= @entry.thirdbesttoprevs %> rpm</p>
+  </div>
+</div>
