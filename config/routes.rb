@@ -25,5 +25,5 @@ Rails.application.routes.draw do
   resources :entries
   resources :chassis
   resources :posts
-  
+  resources :tracks
 end

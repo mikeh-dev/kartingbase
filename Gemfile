@@ -15,12 +15,14 @@ gem "sassc-rails",     "2.1.2"
 gem "sprockets-rails", "3.4.2"
 gem "importmap-rails", "1.1.0"
 gem "turbo-rails",     "1.1.1"
-gem "stimulus-rails",  "1.0.4"
+gem "stimulus-rails",  "1.2.1"
 gem "jbuilder",        "2.11.5"
 gem "puma",            "5.6.4"
 gem "bootsnap",        "1.12.0", require: false
 gem 'open_weather_api'
-
+gem "redis", "~> 4.0"
+gem "chartkick", "~> 5.0"
+gem "groupdate", "~> 6.2"
 
 group :development, :test do
   gem "sqlite3", "1.4.2"
@@ -53,8 +55,4 @@ end
 # on a native Windows system:
 # gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Use Redis for Action Cable
-gem "redis", "~> 4.0"
 
-gem "chartkick", "~> 5.0"
-
-gem "groupdate", "~> 6.2"

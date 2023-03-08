@@ -1,25 +1,75 @@
-<div class="card mb-2"> 
-  <div class="card-body">
-    <h3 class="custom-form-header"></h3>
-    <p><strong>Session Type:</strong> <%= @entry.sessiontype %></p>
-    <p><strong>Track:</strong> <%= @entry.track.name %></p>
-    <p><strong>Session:</strong> <%= @entry.run %></p>
-    <p><strong>Date:</strong> <%= @entry.date %></p>
-    <p><strong>Time:</strong> <%= @entry.time.strftime('%H:%M') %></p>
-    <p><strong>Main Setup Changes:</strong> <%= @entry.mainchanges %></p>
-    <p><strong>Session Notes:</strong> <%= @entry.sessionnotes %></p>
-    <p><strong>Weather:</strong> <%= @entry.condition %></p>
-    <h3 class="custom-form-header mt-1">End of Session Updates</h3>
-    <p><strong>Post Weight:</strong> <%= @entry.endweight %> kg</p>
-    <p><strong>Engine Hrs:</strong> <%= @entry.enginehour %> hours</p>
-    <p><strong>Laps Done:</strong> <%= @entry.lapcount %></p>
-    <p><strong>Post Fuel:</strong> <%= @entry.endfuel %> kg</p>
-    <p><strong>End Psi:</strong> <%= @entry.postpressure %> psi</p>
-    <p><strong>Best Lap Time:</strong> <%= @entry.bestlap %></p>
-    <p><strong>Second Fastest Lap:</strong> <%= @entry.secondbestlap %></p>
-    <p><strong>Third Fastest Lap:</strong> <%= @entry.thirdbestlap %></p>
-    <p><strong>Best Lap Top Revs:</strong> <%= @entry.besttoprevs %> rpm</p>
-    <p><strong>2nd Fastest Top Revs:</strong> <%= @entry.secondbestlaptoprevs %> rpm</p>
-    <p><strong>3rd Fastest Top Revs:</strong> <%= @entry.thirdbesttoprevs %> rpm</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h2><%= @entry.sessiontype %> - <%= @entry.track.name %></h2>
+      <p>Date: <%= @entry.date.strftime("%B %d, %Y") %></p>
+      <p>Time: <%= @entry.time.strftime("%I:%M %p") %></p>
+      <!-- Add other entry details you want to display -->
+    </div>
+    <div class="col-md-6">
+      <!-- Add an image of your choice -->
+      <img src="https://via.placeholder.com/300" alt="entry image">
+    </div>
   </div>
-</div>
+  
+  <hr>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <h3>Main Setup Changes</h3>
+      <p><%= @entry.mainchanges %></p>
+      
+      <h3>Session Notes</h3>
+      <p><%= @entry.sessionnotes %></p>
+      
+      <h3>Weather Conditions</h3>
+      <p><%= @entry.condition %></p>
+    </div>
+    <div class="col-md-6">
+      <h3>End of Session Updates</h3>
+      <p>Post Weight: <%= @entry.endweight %> Kg</p>
+      <p>Engine Hrs: <%= @entry.enginehour %> Hrs</p>
+      <!-- Add other end of session updates you want to display -->
+    </div>
+  </div>
+  
+  <hr>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <h3>Tyres</h3>
+      <p>Pre PSI: <%= @entry.prepressure %> PSI</p>
+      <p>Rim: <%= @entry.rimset %></p>
+      <p>Tyre Type: <%= @entry.tyre %></p>
+      <p>Tyre Set: <%= @entry.tyreset %></p>
+      <p>Tyre Age: <%= @entry.tyreage %> Laps</p>
+    </div>
+    <div class="col-md-6">
+      <h3>Engine & Carb Setup</h3>
+      <p>Carb Clip: <%= @entry.needleclip %></p>
+      <p>Main Jet: <%= @entry.jet %></p>
+      <p>Spark Plug: <%= @entry.plug %></p>
+      <p>Idle: <%= @entry.idle %> Turns</p>
+      <p>Air Mix: <%= @entry.airmix %> Turns</p>
+      <p>Fuel Mix: <%= @entry.fuelmix %> Ratio</p>
+    </div>
+  </div>
+  
+  <hr>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <h3>Chassis Setup</h3>
+      <p>Chassis: <%= @entry.chassis.number %></p>
+      <p>Front Width: <%= @entry.frontwidth %></p>
+      <p>Rear Width: <%= @entry.rearwidth %> mm</p>
+      <p>Gearing: <%= @entry.gearing %></p>
+      <p>Axle: <%= @entry.axle %></p>
+      <p>Caster: <%= @entry.caster %></p>
+      <p>Toe: <%= @entry.toe %></p>
+      <p>Front Camber: <%= @entry.camber %></p>
+      <p>Front Ride Height: <%= @entry.frontride %></p>
+      <p>Rear Ride Height: <%= @entry.rearride %></p>
+    </div> 
+  </div>
+
