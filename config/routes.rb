@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root 'static_pages#home'
-  
+
   resources :posts
   get 'password_resets/new'
   get 'password_resets/edit'
@@ -25,4 +25,5 @@ Rails.application.routes.draw do
   resources :entries
   resources :chassis
   resources :posts
+  
 end
