@@ -1,13 +1,13 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-      <h2><%= @entry.sessiontype %> - <%= @entry.track.name %></h2>
-      <p>Date: <%= @entry.date.strftime("%B %d, %Y") %></p>
-      <p>Time: <%= @entry.time.strftime("%I:%M %p") %></p>
-      <!-- Add other entry details you want to display -->
+      <h1><%= @entry.sessiontype %> - <%= @entry.track.name %></h1>
+      <p><%= @entry.date.strftime("%B %d, %Y") %> at <%= @entry.time.strftime("%I:%M %p") %></p>
+      <p>Weather Conditions: <%= @entry.condition %></p>
+      
     </div>
     <div class="col-md-6">
-      <!-- Add an image of your choice -->
+      
       <img src="https://via.placeholder.com/300" alt="entry image">
     </div>
   </div>
@@ -18,18 +18,20 @@
     <div class="col-md-6">
       <h3>Main Setup Changes</h3>
       <p><%= @entry.mainchanges %></p>
-      
+    </div>
+    <div class="col-md-6">
       <h3>Session Notes</h3>
       <p><%= @entry.sessionnotes %></p>
-      
-      <h3>Weather Conditions</h3>
-      <p><%= @entry.condition %></p>
     </div>
+  </div>
+
+  <hr>
+
+  <div class="row">
     <div class="col-md-6">
       <h3>End of Session Updates</h3>
       <p>Post Weight: <%= @entry.endweight %> Kg</p>
       <p>Engine Hrs: <%= @entry.enginehour %> Hrs</p>
-      <!-- Add other end of session updates you want to display -->
     </div>
   </div>
   
@@ -72,4 +74,18 @@
       <p>Rear Ride Height: <%= @entry.rearride %></p>
     </div> 
   </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="mx-auto">
+      <%= link_to 'Update', edit_entry_path(@entry), class: "btn btn-info btn-lg btn-block mb-2" %>
+      <%= link_to 'Back', entries_path, class: "btn btn-primary btn-lg btn-block" %>
+    </div>
+  </div>
+</div>
+
+
+</div>
 

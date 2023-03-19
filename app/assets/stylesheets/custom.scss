@@ -377,10 +377,13 @@ span.image {
 
 /* for screens between 576px and 991px, display cards in 2 columns */
 @media (min-width: 576px) and (max-width: 991px) {
-  .col-md-6 {
-    flex: 0 0 50%;
-    max-width: 50%;
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
   }
+
 }
 
 .card-container {
@@ -394,9 +397,9 @@ span.image {
 
 .card {
   border: 1px solid #ccc;
-  padding: 20px;
+  padding: 30px;
   margin: 10px;
-  
+  width: 100%;
 }
 
 .card-footer {
@@ -408,3 +411,4 @@ span.image {
   flex: .5;
   margin: 0 5px;
 }
+

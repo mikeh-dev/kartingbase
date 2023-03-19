@@ -1,0 +1,25 @@
+<div class="container mt-5">
+  <h1 class="mb-4">Tracks</h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Track Name</th>
+        <th scope="col">Location</th>
+        <th scope="col">Next Meeting</th>
+        <th scope="col">Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tracks.each do |track| %>
+        <tr>
+          <td><%= track.name %></td>
+          <td><%=  %></td>
+          <td><%=  %></td>
+          <td>
+            
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
