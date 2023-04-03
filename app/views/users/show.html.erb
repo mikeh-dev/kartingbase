@@ -8,7 +8,7 @@
       <h4>Chassis</h4>
       <ul class="list-group">
         <% current_user.chassis.each do |chass| %>
-          <li class="list-group-item"><%= chass.make %></li>
+          <%= link_to chass.make, chassis_path(chass), class: "list-group-item" %>
         <% end %>
       </ul>
     </div>
@@ -16,15 +16,15 @@
       <h4>Entries</h4>
       <ul class="list-group">
         <% current_user.entries.each do |entry| %>
-          <li class="list-group-item"><%= entry.date %></li>
+          <%= link_to entry.date, entry_path(entry), class: "list-group-item" %>
         <% end %>
       </ul>
     </div>
     <div class="col-md-4">
       <h4>Engines</h4>
       <ul class="list-group">
-        <p>Engine Name - Engine Make</p>
-          
+        <p>Engine Name - Engine Number</p>
+        <p>Current Engine Tag</p>          
       </ul>
     </div>
   </div>

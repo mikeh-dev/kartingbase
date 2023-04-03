@@ -11,4 +11,8 @@ class TracksController < ApplicationController
     @track = Track.new
   end
 
+  def track_params
+    params.require(:track).permit(:name, :image, :latitude, :longitude)
+  end
+
 end

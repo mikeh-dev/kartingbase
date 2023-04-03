@@ -5,12 +5,13 @@
     <div class="card-body">
       <h3 class="custom-form-header"></h3>
         <div class="form-row">
-          <div class="form-group col-md-3">
+          
+          <div class="form-group col-md-12">
             <%= form.label :sessiontype, "Session Type" %>
             <%= form.select :sessiontype, options_for_select(['Test', 'Qualifying', 'Heat 1', 'Heat 2', 'Final']),{}, { class: "form-control" } %>
           </div>
           
-          <div class="form-group col-md-3">
+          <div class="form-group col-md-12">
             <%= form.label :track %>
             <%= form.collection_select :track_id, Track.all, :id, :name, { prompt: "Select a track" }, { class: "form-control" } %>
           </div> 
@@ -19,17 +20,17 @@
           <div data-entry-target="details" data-attribute="longitude"></div>
 
           </div>
-          <div class="form-group col-md-6">
+          <div class="form-group col-md-12">
             <%= form.label :run, "Session" %>
             <%= form.number_field :run, { class: "form-control", placeholder: "Session Number"} %>
           </div>
 
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-12">
           <%= form.label :date %>
           <%= form.date_field :date, default: @entry.date, class: "form-control" %>
         </div>
 
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-12">
           <%= form.label :time %>
           <%= form.time_field :time, default: @entry.time.strftime('%H:%M'), class: "form-control" %>
         </div>
@@ -47,12 +48,11 @@
           <div class="form-group col-md-12">
             <%= form.label :condition, "Weather" %>
             <%= form.text_field :condition, { class: "form-control", placeholder: "Summary"} %>
-
-        </div>
+          </div>
 
         <h3 class="custom-form-header mt-1">End of Session Updates</h3>
 
-        <div class="row">
+        <div class="row form-group col-md-12">
             <div class="col">
               <%= form.label :endweight, "Post Weight" %>
               <%= form.text_field :endweight, { class: "form-control", placeholder: "Kg"} %>
@@ -68,7 +68,7 @@
             </div>
           </div>
 
-         <div class="row">
+         <div class="row col-md-12">
              <div class="col">
               <%= form.label :endfuel, "Post Fuel" %>
               <%= form.text_field :endfuel, { class: "form-control", placeholder: "Kg"} %>
@@ -79,12 +79,12 @@
             </div>
           </div>
 
-      <div class="row mt-3">
-        <div class="col">
+      <div class="row col-md-12">
+        <div class="">
           <%= form.label :bestlap, "Best Lap Time" %>
           <%= form.text_field :bestlap, { class: "form-control", placeholder: "Time"} %>
         </div>
-        <div class="col">
+        <div class="">
           <%= form.label :secondbestlap, "Second Fastest Lap" %>
           <%= form.text_field :secondbestlap, { class: "form-control", placeholder: "Time"} %>
         </div>
@@ -95,7 +95,7 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="row col-md-12">
         <div class="col">
           <%= form.label :besttoprevs, "Best Lap Top Revs" %>
           <%= form.text_field :besttoprevs, { class: "form-control", placeholder: "Rpm"} %>
@@ -111,7 +111,7 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="row col-md-12">
         <div class="col">
           <%= form.label :bestbottomrevs, "Best Lap Bottom Revs" %>
           <%= form.text_field :bestbottomrevs, { class: "form-control", placeholder: "Rpm"} %>
@@ -129,7 +129,7 @@
 
        <h3 class="custom-form-header mt-4">Tyres</h3>
 
-      <div class="row mt-3">
+      <div class="row mt-3 col-md-12">
         <div class="col">
           <%= form.label :prepressure, "Pre Psi" %>
           <%= form.text_field :prepressure, { class: "form-control", placeholder: "Psi"} %>
@@ -141,7 +141,7 @@
         </div>
       </div>
 
-      <div class="row mt-3">
+      <div class="row mt-3 col-md-12">
           <div class="col">
             <%= form.label :tyre, "Tyre Type" %>
             <%= form.select :tyre, options_for_select(['Vega White', 'D2XX', 'D5', 'W6 Vega', 'Mojo Wet', 'W5 Vega', 'D2'], @entry.tyre ),{}, { class: "form-control" } %>         
@@ -158,7 +158,7 @@
           </div>
         </div>
 
-    <div class="form-group mt-4">
+    <div class="form-group mt-4 col-md-12">
       <h3 class="custom-form-header">Engine & Carb Setup</h3>
       <div class="row">
         <div class="col">
@@ -190,7 +190,7 @@
       </div>
     </div>
 
-      <div class="row">
+      <div class="row col-md-12">
         <div class="col">
           <%= form.label :fuelload, "Pre Fuel" %>
           <%= form.text_field :fuelload, { class: "form-control", placeholder: "Kg"} %>
@@ -202,7 +202,7 @@
         </div>
       </div>
 
-      <div class="form-group mt-3">
+      <div class="form-group mt-3 col-md-12">
        <h3 class="custom-form-header">Chassis Setup</h3>
         <div class="row">
 
@@ -250,7 +250,7 @@
             <%= form.text_field :toe, { class: "form-control", placeholder: "Mm"} %>
           </div>
         </div>
-        <div class="row mt-3 align-items-center">
+        <div class="row">
           <div class="col">
             <%= form.label :frontbar, "Front Bar" %>
             <%= form.select :frontbar, options_for_select(['Flat Hori', 'Flat Vert', 'Round'], @entry.frontbar ),{}, { class: "form-control" } %>
@@ -267,7 +267,7 @@
           </div>
         </div>
 
-        <div class="">
+        <div class="row">
           <div class="col">
             <%= form.label :chain, "Chain" %>
             <%= form.text_field :chain, { class: "form-control", placeholder: ""} %>
@@ -289,10 +289,10 @@
         <%= form.submit "Submit", class: "btn btn-success" %>
         <%= link_to 'Back', entries_path, class: "btn btn-primary" %>
       </div>
-      </div>
+
+    <% end %>
+
     </div>
   </div>
-<% end %>
 
-
-
+  

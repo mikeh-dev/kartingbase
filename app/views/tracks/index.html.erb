@@ -12,7 +12,7 @@
     <tbody>
       <% @tracks.each do |track| %>
         <tr>
-          <td><%= track.name %></td>
+          <td><%= link_to track.name, track, class: "btn btn-primary btn-lg" %></td>
           <td><%=  %></td>
           <td><%=  %></td>
           <td>
