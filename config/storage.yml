@@ -8,8 +8,8 @@ local:
 #test comment
 amazon:
   service:           S3
-  access_key_id:     AKIAWXB4R7HHADFYNLFD
-  secret_access_key: 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
+  access_key_id:     ....
+  secret_access_key: ....
   region:            us-east-1
   bucket:            kartbasetest
 
